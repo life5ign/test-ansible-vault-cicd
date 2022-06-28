@@ -13,6 +13,8 @@ RUN pip install ansible
 
 COPY . .
 
+ENV ANSIBLE_CONFIG=/root/ansible.cfg
+
 RUN chmod 0700 vault_pass_from_env.sh
 
 ENTRYPOINT ["/bin/bash"]
