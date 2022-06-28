@@ -13,6 +13,7 @@ RUN pip install ansible
 
 COPY . .
 
+# it's necessary to set this variable somewhere, because ansible will otherwise give the warning that it's running in a world writable directory (in Bitbucket this happens to be /opt/atlassian/pipelines/agent/build)
 ENV ANSIBLE_CONFIG=/root/ansible.cfg
 
 RUN chmod 0700 vault_pass_from_env.sh
