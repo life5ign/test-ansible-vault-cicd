@@ -1,0 +1,14 @@
+image: atlassian/default-image:3
+
+pipelines:
+  custom:
+    test-decypt-in-container:
+      - step:
+          name: Test decryption of a vault encrypted secret in a container
+          image:
+            name: owsus/ansible-vanilla
+          script:
+            # test encrypting a string to see if vault is working
+            - ansible-vault encrypt_string foo
+            # decrypt a previously encrypted secret
+            - ansible-vault -v decrypt foo_file
