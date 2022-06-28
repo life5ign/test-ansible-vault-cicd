@@ -9,6 +9,6 @@ pipelines:
             name: owsus/ansible-vanilla
           script:
             # test encrypting a string to see if vault is working
-            - ansible-vault -vvvvv encrypt_string foo
+            - ansible-vault encrypt_string -vvvvv foo
             # decrypt a previously encrypted secret
-            - ansible-vault -vvvvv decrypt foo_file.enc
+            - ansible-vault decrypt -vvvvv foo_file.enc
