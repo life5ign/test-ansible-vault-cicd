@@ -8,6 +8,8 @@ pipelines:
           image:
             name: owsus/ansible-vanilla
           script:
+            # normally you'd never do this with a secret
+            - echo "The vault password is $ANSIBLE_VAULT_PASSWORD"
             # test encrypting a string to see if vault is working
             - ansible-vault encrypt_string -vvvvv foo
             # decrypt a previously encrypted secret
